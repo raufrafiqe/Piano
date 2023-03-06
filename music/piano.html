@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <link rel="stylesheet" href="./rauf.css">
+</head>
+<body>
+    <div class="main">
+
+     <div class="white" key-code="65">
+        <div class="black" key-code="81"></div>
+</div>
+        <div class="white" key-code="83">
+            <div class="black" key-code="87"></div>
+        </div> 
+        <div class="white" key-code="68">
+            <div class="black" key-code="69"></div>
+        </div> 
+        <div class="white" key-code="70">
+            <div class="black" key-code="82"></div>
+        </div> 
+        <div class="white" key-code="71">
+            <div class="black" key-code="84"></div>
+        </div> 
+        <div class="white" key-code="72">
+            <div class="black" key-code="89"></div>
+        </div> 
+        <div class="white" key-code="75">
+            <div class="black" key-code="73"></div>
+        </div> 
+        <div class="white" key-code="76">
+            <div class="black" key-code="79"></div>
+        </div> 
+        <div class="white" key-code="186">
+            <div class="black" key-code="80"></div>
+        </div> 
+        <div class="white" key-code="78">
+            <div class="black" key-code="77"></div>
+        </div> 
+        <div class="white" key-code="66">
+            <div class="black" key-code="83"></div>
+        </div> 
+        <div class="white" key-code="222">
+            <div class="black" key-code="219"></div>
+        </div> 
+
+    </div>
+    <audio data-key="65" src="./key01.mp3"></audio>
+    <audio data-key="81" src="./key02.mp3"></audio>
+    <audio data-key="83" src="./key03.mp3"></audio>
+    <audio data-key="87" src="./key04.mp3"></audio>
+    <audio data-key="68" src="./key05.mp3"></audio>
+    <audio data-key="69" src="./key06.mp3"></audio>
+    <audio data-key="70" src="./key07.mp3"></audio>
+    <audio data-key="82" src="./key08.mp3"></audio>
+    <audio data-key="71" src="./key09.mp3"></audio>
+    <audio data-key="84" src="./key10.mp3"></audio>
+    <audio data-key="72" src="./key11.mp3"></audio>
+    <audio data-key="89" src="./key12.mp3"></audio>
+    <audio data-key="75" src="./key13.mp3"></audio>
+    <audio data-key="73" src="./key14.mp3"></audio>
+    <audio data-key="76" src="./key15.mp3"></audio>
+    <audio data-key="79" src="./key16.mp3"></audio>
+    <audio data-key="186" src="./key17.mp3"></audio>
+    <audio data-key="80" src="./key18.mp3"></audio>
+    <audio data-key="78" src="./key19.mp3"></audio>
+    <audio data-key="66" src="./key20.mp3"></audio>
+    <audio data-key="83" src="./key21.mp3"></audio>
+    <audio data-key="222" src="./key22.mp3"></audio>
+    <audio data-key="219" src="./key23.mp3"></audio>
+    <audio data-key="77" src="./key24.mp3"></audio>
+
+
+
+
+
+    <script>
+        window.addEventListener('keydown',(e)=>{
+            // console.log(e.keyCode);
+            var audio=document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            var whites=document.querySelector(`div[key-code="${e.keyCode}"]`)
+            console.log(whites);
+            if(audio){
+                audio.play()
+                audio.currentTime=0
+                whites.classList.add('playing')
+                console.log(whites);
+            }
+            return
+        })
+        var kk=document.querySelectorAll("div")
+        kk.forEach((e)=>
+       {
+       e.addEventListener('transitionend',remove)
+      })
+   function remove(k)
+    {
+    if(k.propertyName='transform')
+    {
+        this.classList.remove('playing')
+    }
+    return
+   }
+    </script>
+</body>
+</html>
